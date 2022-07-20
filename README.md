@@ -125,6 +125,8 @@ A `reducer` is a function that receives the current `state` and an `action` obje
 
 ## Redux Toolkit
 
+<img src="redux-toolkit.png" width=100/>
+
 <br/>
 
 ### What Is Redux Toolkit?
@@ -187,6 +189,8 @@ Once a slice is created, we can export the generated Redux action creators and t
 <br/>
 
 ## Redux Saga
+
+<img src="redux-saga.png" width=100/>
 
 </br>
 
