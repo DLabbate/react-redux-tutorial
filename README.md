@@ -35,10 +35,6 @@ In the [references](#references) section you will find a list of useful resource
 
 <br/>
 
----
-
-<br/>
-
 ## Redux
 
 <br/>
@@ -127,10 +123,6 @@ A `reducer` is a function that receives the current `state` and an `action` obje
 
 <br/>
 
----
-
-<br/>
-
 ## Redux Toolkit
 
 <br/>
@@ -142,7 +134,7 @@ The Redux Toolkit package is intended to be the standard way to write Redux logi
 💡 _In essence, it makes writing Redux logic much easier._
 
 A great link on getting started with Redux Toolkit can be found here:
-🔗 [Redux Toolkit Quick Start](#https://redux-toolkit.js.org/tutorials/quick-start)
+🔗 [Redux Toolkit Quick Start](https://redux-toolkit.js.org/tutorials/quick-start)
 
 <br/>
 
@@ -191,10 +183,6 @@ export default counterSlice.reducer;
   - One or more `reducers` (functions) to define how the state can be updated
 
 Once a slice is created, we can export the generated Redux action creators and the reducer function for the whole slice!
-
-<br/>
-
----
 
 <br/>
 
@@ -286,21 +274,7 @@ export default mySaga;
 
 <br/>
 
----
-
-<br/>
-
 ## References
-
-<!-- - [Redux FAQ: General](https://redux.js.org/faq/general)
-- [Redux Fundamentals, Part 1: Redux Overview](https://redux.js.org/tutorials/fundamentals/part-1-overview)
-- [Redux Fundamentals, Part 2: Concepts and Data Flow](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow)
-- [Redux Toolkit Quick Start](https://redux.js.org/tutorials/quick-start)
-- [Redux Saga (Getting Started)](https://redux-saga.js.org/docs/introduction/GettingStarted/)
-- [About Redux-Saga](https://redux-saga.js.org/docs/About)
-- [Redux Fundamentals, Part 6: Async Logic and Data Fetching](https://redux.js.org/tutorials/fundamentals/part-6-async-logic)
-- [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
-- [Redux Saga (API Reference)](https://redux-saga.js.org/docs/api/) -->
 
 | Category        | Link                                                                                                                        |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------- |
