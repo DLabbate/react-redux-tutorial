@@ -277,7 +277,7 @@ export default mySaga;
 ## References
 
 | Category        | Link                                                                                                                        |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| :-------------- | :-------------------------------------------------------------------------------------------------------------------------- |
 | Redux (General) | [Redux FAQ: General](https://redux.js.org/faq/general)                                                                      |
 | Redux (General) | [Redux Fundamentals, Part 1: Redux Overview](https://redux.js.org/tutorials/fundamentals/part-1-overview)                   |
 | Redux (General) | [Redux Fundamentals, Part 2: Concepts and Data Flow](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow) |
