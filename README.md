@@ -25,12 +25,12 @@ In the [references](#references) section you will find a list of useful resource
 - [Redux Toolkit](#redux-toolkit)
   - [What Is Redux Toolkit?](#what-is-redux-toolkit)
   - [Redux Toolkit Overview](#redux-toolkit-overview)
-  - [Redux Toolkit Notes](#🗒️-redux-toolkit-notes)
+  - [Redux Toolkit Notes](#redux-toolkit-notes)
 - [Redux Saga](#redux-saga)
   - [What is Redux Saga?](#what-is-redux-saga)
   - [Middleware Diagram](#middleware-diagram)
   - [Redux Saga Overview](#redux-saga-overview)
-  - [Redux Saga Notes](#🗒️-redux-saga-notes)
+  - [Redux Saga Notes](#redux-saga-notes)
 - [References](#references)
 
 <br/>
@@ -175,7 +175,7 @@ export default counterSlice.reducer;
 
 <br/>
 
-### 🗒️ Redux Toolkit Notes
+<h3 id="redux-toolkit-notes">🗒️ Redux Toolkit Notes</h3>
 
 - The main idea behind redux toolkit is to create a 🍕 `slice` of state, by providing the following:
   - A string `name` to identify the slice
@@ -258,7 +258,7 @@ export default mySaga;
 
 <br/>
 
-### 🗒️ Redux Saga Notes
+<h3 id="redux-saga-notes">🗒️ Redux Saga Notes</h3>
 
 - Redux Saga is composed primarily of two parts:
   - `Watcher Saga` will watch for dispatched actions and fork a worker
