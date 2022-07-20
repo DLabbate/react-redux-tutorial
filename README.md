@@ -2,11 +2,13 @@
 
 <br/>
 
-🎯 The objective of this document is to give a high level overview of
+🎯 The objective of this document is to give a high level overview of the following:
 
 1. `Redux`
 2. `Redux Toolkit`
 3. `Redux Saga`
+
+(In the context of [React](https://reactjs.org/))
 
 In the [references](#references) section you will find a list of useful resources that inspired these notes. If you want a deeper dive of the material, or a more comprehensive article, I highly recommend you have a look!
 
