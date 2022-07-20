@@ -24,10 +24,13 @@ In the [references](#references) section you will find a list of useful resource
     - [Reducers](#reducers)
 - [Redux Toolkit](#redux-toolkit)
   - [What Is Redux Toolkit?](#what-is-redux-toolkit)
-  - [Redux Toolkit Overview](#)
-- [Redux Saga](#)
-  - [What is Redux Saga?](#)
-  - [Redux Saga Overview](#)
+  - [Redux Toolkit Overview](#redux-toolkit-overview)
+  - [Redux Toolkit Notes](#🗒️-redux-toolkit-notes)
+- [Redux Saga](#redux-saga)
+  - [What is Redux Saga?](#what-is-redux-saga)
+  - [Middleware Diagram](#middleware-diagram)
+  - [Redux Saga Overview](#redux-saga-overview)
+  - [Redux Saga Notes](#🗒️-redux-saga-notes)
 - [References](#references)
 
 <br/>
@@ -58,7 +61,7 @@ The main idea behind Redux can be summarized by the following:
 > 4. The app has a medium or large-sized codebase, and might be worked on by many people
 > 5. You need to see how that state is being updated over time
 
-🔗[Redux FAQ: General](https://redux.js.org/faq/general)
+🔗 [Redux FAQ: General](https://redux.js.org/faq/general)
 
 <br/>
 
@@ -66,7 +69,7 @@ The main idea behind Redux can be summarized by the following:
 
 > Redux helps you deal with shared state management, but like any tool, it has tradeoffs. It's not designed to be the shortest or fastest way to write code. It's intended to help answer the question "When did a certain slice of state change, and where did the data come from?", with predictable behavior. There are more concepts to learn, and more code to write. It also adds some indirection to your code, and asks you to follow certain restrictions. It's a trade-off between short term and long term productivity.
 
-🔗[Redux FAQ: General](https://redux.js.org/faq/general)
+🔗 [Redux FAQ: General](https://redux.js.org/faq/general)
 
 <br/>
 
@@ -138,7 +141,8 @@ The Redux Toolkit package is intended to be the standard way to write Redux logi
 
 💡 _In essence, it makes writing Redux logic much easier._
 
-A great link on getting started with Redux Toolkit can be found here: 🔗 [Redux Toolkit Quick Start](#https://redux-toolkit.js.org/tutorials/quick-start)
+A great link on getting started with Redux Toolkit can be found here:
+🔗 [Redux Toolkit Quick Start](#https://redux-toolkit.js.org/tutorials/quick-start)
 
 <br/>
 
@@ -204,7 +208,7 @@ Once a slice is created, we can export the generated Redux action creators and t
 
 > redux-saga is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
-_In essence, it is a tool to help us manage asynchronous tasks, such as data fetching!_
+💡 _In essence, it is a tool to help us manage asynchronous tasks, such as data fetching!_
 
 🔗 [About Redux-Saga](https://redux-saga.js.org/docs/About)
 
@@ -214,15 +218,13 @@ _In essence, it is a tool to help us manage asynchronous tasks, such as data fet
 
 <img src="https://d33wubrfki0l68.cloudfront.net/08d01ed85246d3ece01963408572f3f6dfb49d41/4bc12/assets/images/reduxasyncdataflowdiagram-d97ff38a0f4da0f327163170ccc13e80.gif" width=500/>
 
-_What's going on here?_
+_So how do middleware and async logic affect the overall data flow of a Redux app?_
 
-So how do middleware and async logic affect the overall data flow of a Redux app?
+1. Just like with a normal action, we first need to handle a user event in the application, such as a click on a button.
+2. Then, we call `dispatch()`, and pass in something, such as a plain action object.
+3. Once that dispatched value reaches a `middleware`, it can make an async call, and then dispatch an action when the async call completes.
 
-Just like with a normal action, we first need to handle a user event in the application, such as a click on a button. Then, we call dispatch(), and pass in something, whether it be a plain action object, a function, or some other value that a middleware can look for.
-
-Once that dispatched value reaches a middleware, it can make an async call, and then dispatch a real action object when the async call completes.
-
-Earlier, we saw a diagram that represents the normal synchronous Redux data flow. When we add async logic to a Redux app, we add an extra step where middleware can run logic like AJAX requests, then dispatch actions. That makes the async data flow look like this:
+💡 _To summarize, when we add async logic to a Redux app, we add an extra step where middleware can run logic like data fetching requests, then dispatch actions._
 
 🔗 [Redux Fundamentals, Part 6: Async Logic and Data Fetching](https://redux.js.org/tutorials/fundamentals/part-6-async-logic)
 
@@ -273,10 +275,12 @@ export default mySaga;
 - Redux Saga is composed primarily of two parts:
   - `Watcher Saga` will watch for dispatched actions and fork a worker
   - `Worker Saga` will handle the action and terminate
-- The asterisk `*` represents a `generator function`. We don't need to dive too deep into this, but a good reference can be found here: 🔗 [Generator Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+- Sagas are implemented as 🔗 [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) that `yield` objects to the redux-saga middleware.
+  - The yielded objects are a kind of instruction to be interpreted by the middleware.
+  - When a `Promise` is yielded to the middleware, the middleware will suspend the Saga until the Promise completes.
 - `call(fn, ...args)` instructs the middleware call the function `fn` with `args` as arguments.
-  - When a Promise is yielded to the middleware, the middleware will suspend the Saga until the Promise completes.
-  - In simple terms, we can use `yield call` to make an async data fetch.
+  - As illustrated above, we can use `yield call(fn, ...args)` to make an async data `fetch` and wait for the response.
+- `put(action)` instructs the middleware to schedule the dispatching of an action to the store.
 
 🔗 [Redux Saga (API Reference)](https://redux-saga.js.org/docs/api/)
 
@@ -288,8 +292,23 @@ export default mySaga;
 
 ## References
 
-- [Redux FAQ: General](https://redux.js.org/faq/general)
+<!-- - [Redux FAQ: General](https://redux.js.org/faq/general)
 - [Redux Fundamentals, Part 1: Redux Overview](https://redux.js.org/tutorials/fundamentals/part-1-overview)
 - [Redux Fundamentals, Part 2: Concepts and Data Flow](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow)
 - [Redux Toolkit Quick Start](https://redux.js.org/tutorials/quick-start)
 - [Redux Saga (Getting Started)](https://redux-saga.js.org/docs/introduction/GettingStarted/)
+- [About Redux-Saga](https://redux-saga.js.org/docs/About)
+- [Redux Fundamentals, Part 6: Async Logic and Data Fetching](https://redux.js.org/tutorials/fundamentals/part-6-async-logic)
+- [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+- [Redux Saga (API Reference)](https://redux-saga.js.org/docs/api/) -->
+
+| Category        | Link                                                                                                                        |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Redux (General) | [Redux FAQ: General](https://redux.js.org/faq/general)                                                                      |
+| Redux (General) | [Redux Fundamentals, Part 1: Redux Overview](https://redux.js.org/tutorials/fundamentals/part-1-overview)                   |
+| Redux (General) | [Redux Fundamentals, Part 2: Concepts and Data Flow](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow) |
+| Redux Toolkit   | [Redux Toolkit Quick Start](https://redux.js.org/tutorials/quick-start)                                                     |
+| Redux Saga      | [About Redux-Saga](https://redux-saga.js.org/docs/About)                                                                    |
+| Redux Saga      | [Redux Fundamentals, Part 6: Async Logic and Data Fetching](https://redux.js.org/tutorials/fundamentals/part-6-async-logic) |
+| Redux Saga      | [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)               |
+| Redux Saga      | [Redux Saga (API Reference)](https://redux-saga.js.org/docs/api/)                                                           |
