@@ -1,0 +1,25 @@
+.input-container {
+  height: 50px;
+  margin: 40px;
+}
+
+.input-form {
+  all: unset;
+  width: 375px;
+  height: 100%;
+  color: #4056a1;
+  background-color: #e6ecff;
+  border: 2px solid #4056a1;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.add-button {
+  all: unset;
+  height: 100%;
+  cursor: pointer;
+  padding: 0px 15px;
+  color: white;
+  background-color: #4056a1;
+  border: 2px solid #4056a1;
+  border-radius: 0 5px 5px 0px;
+}
