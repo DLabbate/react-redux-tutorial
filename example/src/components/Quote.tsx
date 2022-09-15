@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { QuoteModel } from "../models";
 import { fetchQuoteAction } from "../redux/quoteSaga";
-import { QuoteModel } from "../redux/quoteSlice";
 import { RootState } from "../store/store";
 import styles from "./styles/Quote.module.css";
 

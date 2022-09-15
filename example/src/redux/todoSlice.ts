@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-// Example: { id: 1 , description: "go to gym", completed: false}
-export interface TodoModel {
-  id: string;
-  description: string;
-  completed: boolean;
-}
+import { TodoModel } from "../models";
 
 /*
 Define a type for the slice state
@@ -45,13 +39,10 @@ export const todoSlice = createSlice({
     toggleTodo: (state, action: PayloadAction<string>) => {
       const id = action.payload;
 
-      //const index = state.data.findIndex((todo) => todo.id === id);
-      //const todo = state.data[index];
-      //todo.completed = !todo.completed;
-
       const todo: TodoModel | undefined = state.data.find(
         (todo) => todo.id === id
       );
+
       if (todo) todo.completed = !todo.completed;
     },
   },

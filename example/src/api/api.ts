@@ -1,4 +1,4 @@
-import { QuoteModel } from "../redux/quoteSlice";
+import { QuoteModel } from "../models";
 
 export const getRandomQuote = async (): Promise<QuoteModel> => {
   const url = "https://quotes.rest/qod?language=en";

@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { TodoModel } from "../redux/todoSlice";
 import { RootState } from "../store/store";
 import TodoItem from "./TodoItem";
 import styles from "./styles/TodoList.module.css";
+import { TodoModel } from "../models";
 
 const TodoList = () => {
   const todos: TodoModel[] = useSelector(
