@@ -73,7 +73,7 @@ The main idea behind Redux can be summarized by the following:
 
 ### Redux Concepts
 
-<img src="./images/redux-data-flow.gif" width=500/>
+<img src="./images/redux-data-flow.gif" width=500 />
 
 [🔗 Redux Essentials, Part 1: Redux Overview and Concepts](https://redux.js.org/tutorials/essentials/part-1-overview-concepts)
 
@@ -127,7 +127,7 @@ A `reducer` is a function that receives the current `state` and an `action` obje
 
 ## Redux Toolkit
 
-<img src="./images/redux-toolkit.png" width=100/>
+<img src="./images/redux-toolkit.png" width=100 />
 
 <br/>
 
@@ -192,7 +192,7 @@ Once a slice is created, we can export the generated Redux action creators and t
 
 ## Redux Saga
 
-<img src="./images/redux-saga.png" width=100/>
+<img src="./images/redux-saga.png" width=100 />
 
 </br>
 
@@ -210,7 +210,7 @@ Once a slice is created, we can export the generated Redux action creators and t
 
 ### Middleware Diagram
 
-<img src="./images/redux-middleware.gif" width=500 />
+<img src="./images/redux-middleware.gif" width="500" />
 
 _So how do middleware and async logic affect the overall data flow of a Redux app?_
 
