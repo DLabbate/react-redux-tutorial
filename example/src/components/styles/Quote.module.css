@@ -1,0 +1,15 @@
+.quote-container {
+  margin: 40px;
+  max-width: 1400px;
+}
+
+.quote {
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.author {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
