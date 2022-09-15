@@ -11,7 +11,7 @@ interface Props {
 const TodoItem = ({ id, description, completed }: Props) => {
   const dispatch = useDispatch();
   return (
-    <div key={id} className={styles["todo-item"]}>
+    <div className={styles["todo-item"]}>
       <input
         className={styles["todo-checkbox"]}
         type={"checkbox"}
