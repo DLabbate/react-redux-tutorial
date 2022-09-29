@@ -27,6 +27,8 @@ In the [references](#references) section you will find a list of useful resource
 - [Redux Toolkit](#redux-toolkit)
   - [What Is Redux Toolkit?](#what-is-redux-toolkit)
   - [Redux Toolkit Overview](#redux-toolkit-overview)
+    - [Redux State Slice](#🍕redux-state-slice)
+    - [Use Redux State and Actions in React Components](#use-redux-state-and-actions-in-react-components)
   - [Redux Toolkit Notes](#redux-toolkit-notes)
 - [Redux Saga](#redux-saga)
   - [What is Redux Saga?](#what-is-redux-saga)
@@ -144,6 +146,10 @@ A great link on getting started with Redux Toolkit can be found here:
 
 ### Redux Toolkit Overview
 
+<br/>
+
+#### 🍕Redux State Slice
+
 `features/counter/counterSlice.js`
 
 ```ts
@@ -179,14 +185,54 @@ export default counterSlice.reducer;
 
 <br/>
 
+#### Use Redux State and Actions in React Components
+
+`features/counter/Counter.js`
+
+```ts
+import React from "react";
+import type { RootState } from "../../app/store";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment } from "./counterSlice";
+
+export function Counter() {
+  const count = useSelector((state: RootState) => state.counter.value);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <div>
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>
+        <button
+          aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+</br>
+
 <h3 id="redux-toolkit-notes">🗒️ Redux Toolkit Notes</h3>
 
 - The main idea behind redux toolkit is to create a 🍕 `slice` of state, by providing the following:
   - A string `name` to identify the slice
   - An `initialState` value
   - One or more `reducers` (functions) to define how the state can be updated
-
-Once a slice is created, we can export the generated Redux action creators and the reducer function for the whole slice!
+- Once a slice is created, we can export the generated Redux action creators and the reducer function for the whole slice!
+- Use the `useSelector` / `useDispatch` hooks in React components
+  - Read data from the store with the `useSelector` hook
+  - Dispatch actions as needed with the `useDispatch` hook
 
 <br/>
 
