@@ -15,7 +15,7 @@ const Quote = () => {
 
   return (
     <div className={styles["quote-container"]}>
-      <p className={styles["quote"]}>"{data.quote}"</p>
+      <p className={styles["text"]}>"{data.text}"</p>
       <p className={styles["author"]}>- {data.author}</p>
     </div>
   );

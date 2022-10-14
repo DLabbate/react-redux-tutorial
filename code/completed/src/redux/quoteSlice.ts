@@ -6,7 +6,7 @@ interface QuoteState {
 }
 
 const initialState: QuoteState = {
-  data: { quote: "", author: "" },
+  data: { text: "", author: "" },
 };
 
 export const quoteSlice = createSlice({
