@@ -10,6 +10,7 @@ export const getRandomQuote = async (): Promise<QuoteModel> => {
   }
 
   const quotesArray: QuoteModel[] = await response.json();
+  const randomIndex = Math.floor(Math.random() * quotesArray.length);
 
-  return quotesArray[0];
+  return quotesArray[randomIndex];
 };
